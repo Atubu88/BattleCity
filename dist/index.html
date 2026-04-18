@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Battle City</title>
+
+  
+  <script type="text/javascript" src="lib/jquery-1.7.2.js"></script>
+
+  <script type="text/javascript" src="src/Utils.js"></script>
+  <script type="text/javascript" src="src/Point.js"></script>
+  <script type="text/javascript" src="src/Rect.js"></script>
+  <script type="text/javascript" src="src/Sprite.js"></script>
+  <script type="text/javascript" src="src/Tank.js"></script>
+  <script type="text/javascript" src="src/Wall.js"></script>
+  <script type="text/javascript" src="src/SpriteContainer.js"></script>
+  <script type="text/javascript" src="src/CollisionDetector.js"></script>
+  <script type="text/javascript" src="src/EventManager.js"></script>
+  <script type="text/javascript" src="src/SpriteController.js"></script>
+  <script type="text/javascript" src="src/TankController.js"></script>
+  <script type="text/javascript" src="src/Keyboard.js"></script>
+  <script type="text/javascript" src="src/MobileControls.js"></script>
+  <script type="text/javascript" src="src/BulletFactory.js"></script>
+  <script type="text/javascript" src="src/Bullet.js"></script>
+  <script type="text/javascript" src="src/Painter.js"></script>
+  <script type="text/javascript" src="src/Updater.js"></script>
+  <script type="text/javascript" src="src/BulletExplosionFactory.js"></script>
+  <script type="text/javascript" src="src/Explosion.js"></script>
+  <script type="text/javascript" src="src/BulletExplosion.js"></script>
+  <script type="text/javascript" src="src/BrickWall.js"></script>
+  <script type="text/javascript" src="src/SteelWall.js"></script>
+  <script type="text/javascript" src="src/Cursor.js"></script>
+  <script type="text/javascript" src="src/BlinkTimer.js"></script>
+  <script type="text/javascript" src="src/CursorController.js"></script>
+  <script type="text/javascript" src="src/Builder.js"></script>
+  <script type="text/javascript" src="src/StructureManager.js"></script>
+  <script type="text/javascript" src="src/BrickWallFactory.js"></script>
+  <script type="text/javascript" src="src/SteelWallFactory.js"></script>
+  <script type="text/javascript" src="src/Globals.js"></script>
+  <script type="text/javascript" src="src/SpriteSerializer.js"></script>
+  <script type="text/javascript" src="src/Base.js"></script>
+  <script type="text/javascript" src="src/TankStateAppearing.js"></script>
+  <script type="text/javascript" src="src/TankStateNormal.js"></script>
+  <script type="text/javascript" src="src/TankStateInvincible.js"></script>
+  <script type="text/javascript" src="src/AITankController.js"></script>
+  <script type="text/javascript" src="src/Random.js"></script>
+  <script type="text/javascript" src="src/AITankControllerFactory.js"></script>
+  <script type="text/javascript" src="src/AITankControllerContainer.js"></script>
+  <script type="text/javascript" src="src/EnemyFactory.js"></script>
+  <script type="text/javascript" src="src/Animation.js"></script>
+  <script type="text/javascript" src="src/TankExplosionFactory.js"></script>
+  <script type="text/javascript" src="src/TankExplosion.js"></script>
+  <script type="text/javascript" src="src/PointsFactory.js"></script>
+  <script type="text/javascript" src="src/Points.js"></script>
+  <script type="text/javascript" src="src/PlayerTankFactory.js"></script>
+  <script type="text/javascript" src="src/PlayerTankControllerFactory.js"></script>
+  <script type="text/javascript" src="src/PowerUpFactory.js"></script>
+  <script type="text/javascript" src="src/PowerUp.js"></script>
+  <script type="text/javascript" src="src/PowerUpHandler.js"></script>
+  <script type="text/javascript" src="src/FreezeTimer.js"></script>
+  <script type="text/javascript" src="src/BaseWallBuilder.js"></script>
+  <script type="text/javascript" src="src/ShovelHandler.js"></script>
+  <script type="text/javascript" src="src/Pause.js"></script>
+  <script type="text/javascript" src="src/PauseListener.js"></script>
+  <script type="text/javascript" src="src/BaseExplosionFactory.js"></script>
+  <script type="text/javascript" src="src/BaseExplosion.js"></script>
+  <script type="text/javascript" src="src/TankColor.js"></script>
+  <script type="text/javascript" src="src/SceneManager.js"></script>
+  <script type="text/javascript" src="src/MainMenuScene.js"></script>
+  <script type="text/javascript" src="src/MainMenuItem.js"></script>
+  <script type="text/javascript" src="src/OnePlayerMenuItem.js"></script>
+  <script type="text/javascript" src="src/ConstructionMenuItem.js"></script>
+  <script type="text/javascript" src="src/MainMenu.js"></script>
+  <script type="text/javascript" src="src/MainMenuController.js"></script>
+  <script type="text/javascript" src="src/MainMenuView.js"></script>
+  <script type="text/javascript" src="src/MainMenuCursor.js"></script>
+  <script type="text/javascript" src="src/MainMenuCursorView.js"></script>
+  <script type="text/javascript" src="src/Gamefield.js"></script>
+  <script type="text/javascript" src="src/Level.js"></script>
+  <script type="text/javascript" src="src/EnemyFactoryView.js"></script>
+  <script type="text/javascript" src="src/LivesView.js"></script>
+  <script type="text/javascript" src="src/MainMenuView.js"></script>
+  <script type="text/javascript" src="src/Curtain.js"></script>
+  <script type="text/javascript" src="src/Script.js"></script>
+  <script type="text/javascript" src="src/Delay.js"></script>
+  <script type="text/javascript" src="src/GameScene.js"></script>
+  <script type="text/javascript" src="src/StageMessage.js"></script>
+  <script type="text/javascript" src="src/Stages.js"></script>
+  <script type="text/javascript" src="src/MoveFn.js"></script>
+  <script type="text/javascript" src="src/GameOverMessage.js"></script>
+  <script type="text/javascript" src="src/StageStatisticsScene.js"></script>
+  <script type="text/javascript" src="src/GameOverScene.js"></script>
+  <script type="text/javascript" src="src/Player.js"></script>
+  <script type="text/javascript" src="src/StageStatisticsPoints.js"></script>
+  <script type="text/javascript" src="src/Trees.js"></script>
+  <script type="text/javascript" src="src/Water.js"></script>
+  <script type="text/javascript" src="src/LoadingScene.js"></script>
+  
+  <script type="text/javascript" src="lib/Stats.js"></script>
+  <script type="text/javascript" src="src/FPSCounter.js"></script>
+  
+  <script type="text/javascript" src="src/ImageManager.js"></script>
+  <script type="text/javascript" src="src/Construction.js"></script>
+  <script type="text/javascript" src="src/SpriteSerializerController.js"></script>
+  <script type="text/javascript" src="src/SpriteSerializer.js"></script>
+  <script type="text/javascript" src="src/SoundManager.js"></script>
+
+  <script type="text/javascript">
+    $(function () {
+      var FPS = 50;
+      
+      var CANVAS_ID = 'canvas';
+      var ctx = createCanvasContext();
+      ctx.font = "16px prstart"
+      
+      var eventManager = new EventManager();
+      var keyboard = new Keyboard(eventManager);
+      var mobileControls = new MobileControls(keyboard);
+      var sceneManager = new SceneManager(eventManager);
+      sceneManager.toLoadingScene();
+      
+      setInterval(gameLoop, 1000 / FPS);
+      
+      function gameLoop() {
+        keyboard.fireEvents();
+        sceneManager.update();
+        sceneManager.draw(ctx);
+      }
+      
+      function createCanvasContext() {
+        $('<canvas id="' + CANVAS_ID + '" width="' + Globals.CANVAS_WIDTH + '" height="' + Globals.CANVAS_HEIGHT + '"></canvas>').prependTo('#main');
+        var canvas = document.getElementById(CANVAS_ID);
+        return canvas.getContext('2d');
+      };
+    });
+  </script>
+
+  <link rel="stylesheet" crossorigin href="/assets/index-DaF5K9SX.css">
+</head>
+
+<body>
+  <div id="main">
+    <div id="help">
+      <p>CONTROLS:</p>
+      <table>
+        <tr>
+          <td><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAL7SURBVEiJvZbBa1xVFMZ/5977Zt4kmSQdhyQatDQRu0igFBEKoXahG6WgGBcq1K3gQhddKLULF934R+imCBWMYK11o4saA12WFnVRWxLTxCTENK8vM/Nm3pt7XDRtWjvJPIp44W7e+b733Xu+cw8HVWWvDUyKSAzog1uMWQcmuvEdXZax7tTw/rHeoacPUC4aGklKJpbVhRuVtcX508Dbe/K7CYhQcEFBfDvj5WNTPD95EFUlKIYiQtD1gN0A99boEwMcf/UV3j3xDuWC5KXlE3BGmH7tOABhGPLS0SlUfS6Brh4AGGM4e26Gs+dmAFA8zuS7fC6BVtYmamYPfWtrrv/n9+BxlxORCWPd6d0qwnt/ZDey9/6IC4KvO8VUSX07OyNizPrwM2OVoBgKQNFZRIQk3UnJ4NAIIkI92gQRegf24X2bzbWV+5gwcKgqzawNQNpMdPXPmxsW1c/GD70gxbDE5MFxPnz/PX6/fhNT6qPU10+prx8RQyPaoKenlzjapFWrUSoP3I+X+vqp7hvk45MfsHH7NvVMKVeqsjL/R48DKBeEN6Zf58WjUx1T0axt8dT+MRq1LSpVIW01ydIWLig8hBt/doxPPjrJz7NzfPPdRWDb5K1GiytXrxHHcUcBWwiw1jJYqVIdfpJCoYixnQswjmOuXL3GVqN1lwt8OnzgOVY3Ii7N/kLtzh0Wl5dpPlCHxjoacURYDGm1mtTrdey/Tl90EEcRn3/5FbfWIzCW1YUbPGKy9x5rBGWnHQwOjWCMpZ2mYARr3SMmC0rbK2b7Ad4z2an3x9YW57uV6WhlZBQb7EA211a4df23JWPM5U48VVL1/oxT1V/Zo+Vu1/l0p5gx5nKWpm/uxoX/4yXnARWcZaC4A1U8Uc6OnUvAe8+Jt6Y5fPgQAOfPf88X8wu5BHKlKPPKzLcXAEiShJ9m5xD5D9s1wNLfERcu/sDy0l/ErZy9Oo+AKmnaTNRYJz9emqORpIhY0maiqqRdFXKMLRPbI8pjjS3/ADpEjeWHNXsMAAAAAElFTkSuQmCC" alt="" /></td>
+          <td>ARROWS</td>
+        </tr>
+        <tr>
+          <td><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAOeSURBVEiJtZbtT1t1FMc/994+QSk1PBQunXuggGxmgGb4YjHBbFk0oDExMfEhWXxjpn/F9JUxUWd8qb4y4gtmFZdBjIbMh8SHjWUbAXEwi6O00BVKt5bep/ZeX4Btr23ZpvEkN7m/c373+znn5CTnCpZl8cXZz4aBN4F+wMl/MwO4Bpx+7vmXJoXw2OgwMFH1pqJgXr5Iy+YdHtB1mkSRereb1dwWNwp5snIQ3yMDSL7GWrARITw2egk48s/I5sVfGFpNEOruxrJMcuk0Rk5BzykYioLb14DT4yGZTHIh0ErLsePVANNCeGxUp6wtajZDcGqKx0MhREkiufgHsZlZDFWtmqLLW4+3uYmfCwaekydxeBtsTRDLxTVdQw6HGertJXtrnZlzE/x5cbqmOIC+lWNzeYXDqds43j2DspUtDzvF8pNybpyhwUGyyXUWvv8BLZPlXs1QVPboeZKffmLzO/5+iV2Z5lRXD3lVY/G7H7EK5nYKskxd/wCiz1dd2bJIf362eHwsmuDy9CWCRwZLAF3X6Lk6g+voUWYnvi62pOHYcVpee3331E3TBnAAgYlJtL4+3C43IkB0NUZfewdb6xvkUpvFyw1DT5R0FAUjHi8+lmHUZO43TG7eWChVkI4s0hqUWZu/brvoCAS2u2AYrL1xGn0pUozJb72NOxSqChAAdSkChw5vV9C8msDhdpNeiVXvQiZjE78XE2PbWiKAlNqgYBjkNtP3JbKbeTZSwE6LEpKI5HQiSGJxemzZ+P0E3//A5nO0tu4KSGGVARr9GIqKq64eLVs5+4Ik4ezouK8KtuS2EqBu715S8Tgub3VAIZMh+d47Nl/zq6dqQk1A6gyVAO1tMr9e+Yb+phYyiVuVXxgG6tycXURRamYfFUF+cH8J0LnvAB+ZKh/6fIgOB2Y+D4C2sEDe76dw53aFiB6JYGkamIWK2Fc+JyPBPQAI4bFRC2B+cR5zfJyXm2XWI0s1s7ubTTkt8i++wMM9h4CdMQU42H2Q33o6mU2sIQjCvxJfE+H3R/uL4jYAwPCJZzjTKPGTVDmqd7PrEnwc8PHUk0/b/BULR9FUzn97HtfVGV7RBLzW7sKqAGMui42BPkZODFPvqS8PGzVX5tzCPBcmv+ShjEqXCV0FgfadwhIiLIsWN0WY8XsZGnmW3q7eavzpXZe+rmssx1eIxqMsx6JsrESR3C6a2mTkNpmOgEznvgN43J5aBY4I//dvy19Es4es9s9OeAAAAABJRU5ErkJggg==" alt="" />,<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAPNSURBVEiJtZbfT1tlHMY/5/S057RA+VGotBQJbGMFlpEZNAxn1MRoApGLmWHcXLzTuGSbung9/Se8MDExKFMxSGIUs7nMC5MZBbbhhrBBGmy7tupKaMfanp5zerzY2lLaKmp8rt7zfJ/3+7zf9+cRTNPki8/PDQPvAv2Alf8GDVgAzh4+cnRGmJqcGAa+rqTMqBmivyxSeztMYzKJWzdokBWihs6qbIM93bT4e7DZ5GpmI8LU5MQsMLA9snLjZ/rm5nimdx9KvRND09DSabKpNFoqjUW2kdN11sJhLvu78Q4dqmQwJ0xNTmTZMi33UinufvMlx1rbqW92cS++TujqAslorKy3aLFQ29KMZFf4NqfR+PIr2OxKyXQJU5MTZv4rrWaIffA+p594CkPTCF25xvpasFr5JZDralnRVNQ3TmGvdRYHsVV07atpTgwMgmmyfOHSjpMDqHc3eTijsT4+XsJL+cbSzUXeanSjOOu4efE71M1N5F27EOucZckAzEwadXUVU9dL+IHIH8z99ANtjx0sGmSzKrbz5/E8N8yvs/MkY78B0PDSUez7+6uOOpdOs/HZpyRnipvQArTNXCDTfwBFVu5PUTAS5kmXG0PT+P3W6o6nRbTbcT4/CoJQwvv0HLHr14sVhG4H6fa1k4hEMXO5isnCr7+GaRgACFYr7jNvY+vqQnK5kJpc6PE7JXp9LQADj943UAMB6gcOErj8Y9XRyr298MBckCTEurpCzNS1Mr01FitWIEaiCKJYca/n0XLydEVej8cxEokyvn4jUTRIKlbMXA5RksqEeWiRSKEtyDYkVzMAYk0NiGKhujxSpklD3sDwekknktgcdtTNzYoGkTNvFtYAoPXsOyh9+xAVBamxET0eL9FvuJrw5g1cnjai0Sg2h6NqBY6hoeIayApWn68QM3WjTG90dkDewOv2MDu/wCGPr0yYR7U1yAYCGImNUg5wdPcCD66Kro5OJswsotWKxbqz58BUVVKzs6yPf1gWu+SQaG9vB6Bw2S2vLmNMT3P8Id8/OmzbERTh1rEx/Hv7ihUA+Hf7Wdq7mxvRKKJk+VfJdeD7/T2F5CUGAMPPjvBejYVFU9/e92+REuDjJjuDo4dLeJH7bygADsXB8VdPcnHwEc7JJuXnszLmJZOPDvgZOnEK2WbbGtIsLx55YRTw5hnJYqFnj5+Ut5VPwitkdB1BEHCapeXeEWBJMplx2lHGxhh6/GmsUtkGufqXj342qxKMhAlFQkRCQYRQCLtFwmjz0OD14XV76OroRJGVSt0BRoT/+7flTygKcMQ5VWWyAAAAAElFTkSuQmCC" alt="" /></td>
+          <td>SPACE</td>
+        </tr>
+        <tr>
+          <td><img src="data:image/png;base64,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" alt="" /></td>
+          <td>ENTER</td>
+        </tr>
+        <tr>
+          <td><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADEAAAAYCAYAAABTPxXiAAAABHNCSVQICAgIfAhkiAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAUaSURBVFiFzZZrbBRVFIC/MzP7YLc8Wmh5iJSWh7TFiFLBRhIjoQlBQ1OpBAQf0WBCMEYT1IRESUzUP/pHSIgGUSM/qhJLK5pIlAR+lLQWJSLWNkVKE96WlrYr+5zjj2m3O+1uW0CQsz/2nnvueXz3zj0zoqrU1u1bqKq7gFIR8XOHi6qGgSYR2Vyxuup32V/79UJVParxRFBtW/7vAscqYhgqlhkSkTJLVXelAujlTjQadnv4/aACkWvpI3p9EI0ggSCSPcll0mgUvXw5vZ9hYUyfito2euEiqO22e3wQi6SHGD9BjEkTg1jmLgsoVdsWvdxJdM8X6Nlzw3MV3wMJxW5pTRvQXLKYROMxzKWleDasdUOcv0j0gx3pIbKCeNatIfZ1DVztHZ639H7spl/TulqrypGV5SKYpdbAHUg0/+kA+P0Y8+a4qWfdhba1O+PC2Ugw6LYP0dNKIIAxp8A95/eRaPwFrvYi06YiuVPccadNxbi3BIDEyWbEtpGSBYhhInl5zhoRv5X0iMQc+nlz8G56dlgN0bbdzg6UL8cozB9M5PcTb2walUGmTsGzMeWULAvxeIju/NhR11Zizi3M6B9+/S0Ih/E+sx4ZN85lS0IYJQvg2++xT5wkvO1tEMAwMUsWYK54NOkQ+2iPK4DvnTdHBQDQ0x1E3tie1M2yJXjWVw0uMG68pwxCzJiGtbYS+/gJNBp1El+4RKK+AbzeQY8JWYjpSUlujCmRmibGhAmDE1mBGy56qFguZVkZLCtL6vEDPxA/+BPa1ZWc8zy3ccRjzyRm/iy8r2zOaNfOK1BYkNE+kliqqoDEjzaQOFLvDnzJaY1G4WzsP5zOFPtsL/HUk6C/ewGJ479ht55y2SQv17Gd6SCy/T139mAAY2ERtLYR/7KGxKEj7uLKl2M+cN+IAKqqFtCBSD49IfTsefcCw8AsKcJcsjgJQU8fOjRSzGkKRKJoJOq2ZTmdSxIJ14k6flHMh5dit59BW9qG5+/rGxEAEYAOqdn/1cuovmvH4mPok3eWGB4rhMg2S0R2KMwzvJ7nsTWuqCfdesB3u4sEIoA9dFKQGIZYwKciskOcKwG1dfvygQeBKUOdsO0ngBUD53d7RBX4EcP4Jo3xb+DnitVVZwCSECNJbU31AZDHEKed2rbN4frD1Dc10N3dmdZHxN16pf89MHQXAoHx5M+cxaoVK8mdnJvCYAP6XUXlusdHq88abUG/uCqqO3iAltOnKXloJcGJkzEMAxFBREBx/vt1ERD6dQRn6IxFhPA/vZw708KHu3fy4tObuHvGzIx5bxYiKdfCYRqPNbDokQrUtAj19SQBkiADYzLMu+wG0wuKMSwv1TXVvLZl6/WWdP0Q3d1d+PwBwpEIkWg0pSjnNBhSuAsigw0RsrLz6AuFuNLdRc6k7FsLkZOdQ/haiN6eLgzTHLbjpACl2oadQvLxEtdGJOLx6y3p+iF8Ph/F84s51dFCcMoMV8GZH6PhUEPBwqGrgE1Ods4tg7iSqjxZUcXuvZ9w8WwbeMYNfgSKJLtPaqH9V9sFxMCFBxLRMLG+LjaseQrTNDPmvSkIgUOKVgBZAH6fn5de2EJzazN/tZ+iNxRCB36K0+IVVBTb7tdRHJONqiTnAKblFVC6qNTdYtE+gUP/GQTwOfAqas8F8Q+884rmF1E0v2iMIcYoDlwYaO/PO6qM6WUHUFdTnaXwPlAlMPlGaxxNFDqBfQJbV1euG+UL0JF/AaM9zISj9qEkAAAAAElFTkSuQmCC" alt="" /></td>
+          <td>CTRL</td>
+        </tr>
+      </table>
+    </div>
+    <div id="mobile-controls" aria-label="Touch controls">
+      <div class="touch-dpad" aria-hidden="true">
+        <button id="control-up" class="touch-btn touch-dir" type="button">▲</button>
+        <button id="control-left" class="touch-btn touch-dir" type="button">◀</button>
+        <button id="control-right" class="touch-btn touch-dir" type="button">▶</button>
+        <button id="control-down" class="touch-btn touch-dir" type="button">▼</button>
+      </div>
+      <div class="touch-actions">
+        <button id="control-fire" class="touch-btn touch-fire" type="button">FIRE</button>
+        <button id="control-start" class="touch-btn" type="button">START</button>
+        <button id="control-select" class="touch-btn" type="button">SELECT</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
