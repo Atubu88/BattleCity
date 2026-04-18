@@ -1,0 +1,157 @@
+@font-face {
+  font-family: prstart;
+  src: url('../fonts/prstart.ttf');
+}
+
+body {
+  font-family: prstart;
+  font-size: 16px;
+  background-color: black;
+  margin: 16px;
+}
+
+#main {
+  margin: 0 auto;
+  width: min(512px, 100%);
+  color: white;
+}
+
+#canvas {
+  width: 100%;
+  max-width: 512px;
+  height: auto;
+  aspect-ratio: 512 / 480;
+  display: block;
+  image-rendering: pixelated;
+}
+
+#help {
+  border-top: 4px solid white;
+  margin-top: 10px;
+  padding-top: 7px;
+}
+
+#help img {
+  vertical-align: middle;
+}
+
+#help td {
+  padding-left: 1em;
+}
+
+#mobile-controls {
+  margin-top: 14px;
+  display: none;
+  grid-template-columns: minmax(130px, 160px) minmax(120px, 1fr);
+  gap: 14px;
+  align-items: end;
+  user-select: none;
+}
+
+.touch-dpad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 8px;
+}
+
+#control-up {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+#control-left {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+#control-right {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+#control-down {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.touch-actions {
+  display: grid;
+  gap: 8px;
+  justify-items: stretch;
+}
+
+.touch-btn {
+  border: 2px solid #fff;
+  border-radius: 12px;
+  color: white;
+  background: #1c1c1c;
+  font-family: prstart;
+  font-size: 12px;
+  min-height: 42px;
+  padding: 0 8px;
+  touch-action: none;
+}
+
+.touch-fire {
+  min-height: 56px;
+  font-size: 14px;
+}
+
+.touch-btn.active {
+  background: #dedede;
+  color: black;
+}
+
+@media (max-width: 860px), (pointer: coarse) {
+  body {
+    margin: 8px;
+  }
+
+  #main {
+    width: 100%;
+    min-height: calc(100svh - 16px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  #canvas {
+    width: 100%;
+    max-width: 512px;
+    height: auto;
+    aspect-ratio: 512 / 480;
+    display: block;
+  }
+
+  #help {
+    display: none;
+  }
+
+  #mobile-controls {
+    display: grid;
+    width: 100%;
+    max-width: 512px;
+    margin-top: 0;
+    grid-template-columns: minmax(112px, 140px) minmax(100px, 1fr);
+    gap: 8px;
+    align-items: stretch;
+  }
+
+  .touch-dpad,
+  .touch-actions {
+    gap: 6px;
+  }
+
+  .touch-btn {
+    min-height: 38px;
+    font-size: 10px;
+    border-radius: 10px;
+  }
+
+  .touch-fire {
+    min-height: 48px;
+    font-size: 12px;
+  }
+}
