@@ -20,6 +20,7 @@
   <script type="text/javascript" src="src/SpriteController.js"></script>
   <script type="text/javascript" src="src/TankController.js"></script>
   <script type="text/javascript" src="src/Keyboard.js"></script>
+  <script type="text/javascript" src="src/MobileControls.js"></script>
   <script type="text/javascript" src="src/BulletFactory.js"></script>
   <script type="text/javascript" src="src/Bullet.js"></script>
   <script type="text/javascript" src="src/Painter.js"></script>
@@ -115,6 +116,7 @@
       
       var eventManager = new EventManager();
       var keyboard = new Keyboard(eventManager);
+      var mobileControls = new MobileControls(keyboard);
       var sceneManager = new SceneManager(eventManager);
       sceneManager.toLoadingScene();
       
@@ -158,6 +160,19 @@
           <td>CTRL</td>
         </tr>
       </table>
+    </div>
+    <div id="mobile-controls" aria-label="Touch controls">
+      <div class="touch-dpad" aria-hidden="true">
+        <button id="control-up" class="touch-btn touch-dir" type="button">▲</button>
+        <button id="control-left" class="touch-btn touch-dir" type="button">◀</button>
+        <button id="control-right" class="touch-btn touch-dir" type="button">▶</button>
+        <button id="control-down" class="touch-btn touch-dir" type="button">▼</button>
+      </div>
+      <div class="touch-actions">
+        <button id="control-fire" class="touch-btn touch-fire" type="button">FIRE</button>
+        <button id="control-start" class="touch-btn" type="button">START</button>
+        <button id="control-select" class="touch-btn" type="button">SELECT</button>
+      </div>
     </div>
   </div>
 </body>
