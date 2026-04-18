@@ -103,14 +103,49 @@ body {
 
 @media (max-width: 860px), (pointer: coarse) {
   body {
-    margin: 10px;
+    margin: 8px;
+  }
+
+  #main {
+    width: 100%;
+    min-height: calc(100svh - 16px);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  #canvas {
+    flex: 1 1 auto;
+    width: 100%;
+    max-height: 72svh;
+    object-fit: contain;
   }
 
   #help {
-    font-size: 12px;
+    display: none;
   }
 
   #mobile-controls {
     display: grid;
+    margin-top: 0;
+    grid-template-columns: minmax(112px, 140px) minmax(100px, 1fr);
+    gap: 8px;
+    align-items: stretch;
+  }
+
+  .touch-dpad,
+  .touch-actions {
+    gap: 6px;
+  }
+
+  .touch-btn {
+    min-height: 38px;
+    font-size: 10px;
+    border-radius: 10px;
+  }
+
+  .touch-fire {
+    min-height: 48px;
+    font-size: 12px;
   }
 }
