@@ -119,12 +119,26 @@
       var sceneManager = new SceneManager(eventManager);
       sceneManager.toLoadingScene();
       
-      setInterval(gameLoop, 1000 / FPS);
+      var FIXED_STEP = 1000 / FPS;
+      var accumulator = 0;
+      var lastTime = performance.now();
+      requestAnimationFrame(gameLoop);
       
-      function gameLoop() {
-        keyboard.fireEvents();
-        sceneManager.update();
+      function gameLoop(now) {
+        var delta = now - lastTime;
+        if (delta > 250) {
+          delta = FIXED_STEP;
+        }
+        lastTime = now;
+        accumulator += delta;
+
+        while (accumulator >= FIXED_STEP) {
+          keyboard.fireEvents();
+          sceneManager.update();
+          accumulator -= FIXED_STEP;
+        }
         sceneManager.draw(ctx);
+        requestAnimationFrame(gameLoop);
       }
       
       function createCanvasContext() {
