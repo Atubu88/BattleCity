@@ -245,15 +245,17 @@ Tank.prototype.setHitLimit = function (limit) {
 };
 
 Tank.prototype.destroyHook = function () {
+  this._bullets = 0;
+
   this._eventManager.fireEvent({'name': Tank.Event.DESTROYED, 'tank': this});
-  
+
   if (this._player) {
     this._eventManager.fireEvent({'name': Tank.Event.PLAYER_DESTROYED, 'tank': this});
   }
   else {
     this._eventManager.fireEvent({'name': Tank.Event.ENEMY_DESTROYED, 'tank': this});
   }
-  
+
   if (this._flashing) {
     this._eventManager.fireEvent({'name': Tank.Event.FLASHING_TANK_DESTROYED, 'tank': this});
   }

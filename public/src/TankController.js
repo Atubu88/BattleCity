@@ -20,8 +20,17 @@ TankController.prototype.keyPressed = function (key) {
     return;
   }
   SpriteController.prototype.keyPressed.call(this, key);
-  
+
   if (key == Keyboard.Key.SPACE) {
     this._sprite.shoot();
+    this._spacePressed = true;
+  }
+};
+
+TankController.prototype.keyReleased = function (key) {
+  SpriteController.prototype.keyReleased.call(this, key);
+
+  if (key == Keyboard.Key.SPACE) {
+    this._spacePressed = false;
   }
 };
